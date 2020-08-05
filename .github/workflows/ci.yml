@@ -6,5 +6,13 @@ jobs:
   increment-file:
     runs-on: ubuntu-latest
     steps:
-      - run: echo Running at `date`
-      - run: echo $((`cat increment.txt` + 1)) > increment.txt
+      - run: touch nonsense.txt
+      - run: ls
+      - run: pwd
+      - run: git status
+      - run: git branch
+      # - run: echo Running at `date`
+      # - run: i=$((`cat increment.txt` + 1)) > increment.txt
+      # - run: echo $((`cat increment.txt` + 1)) > increment.txt
+      # - run: git status
+      # - run: git commit -am ''
