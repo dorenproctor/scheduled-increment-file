@@ -1,11 +1,13 @@
 on: push
   # schedule:
-  #   - cron: "5 * * * *" # every 5 minutes
+  #   - cron: "*/5 * * * *" # every 5 minutes
 
 jobs:
   increment-file:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - run: echo workspace is $GITHUB_WORKSPACE
       - run: touch nonsense.txt
       - run: ls
       - run: pwd
