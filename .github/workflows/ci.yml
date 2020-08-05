@@ -1,20 +1,23 @@
-on: push
-  # schedule:
-  #   - cron: "*/5 * * * *" # every 5 minutes
+on:
+  schedule:
+    - cron: "*/5 * * * *" # every 5 minutes
 
 jobs:
   increment-file:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo workspace is $GITHUB_WORKSPACE
-      - run: touch nonsense.txt
-      - run: ls
-      - run: pwd
+      - run: i=$((`cat increment.txt` + 1))
+      - run: echo incrementing to $i
+      - run: echo $i > increment.txt
       - run: git status
-      - run: git branch
-      # - run: echo Running at `date`
-      # - run: i=$((`cat increment.txt` + 1)) > increment.txt
+      - run: git commit -am "increment to $i"
       # - run: echo $((`cat increment.txt` + 1)) > increment.txt
+
+      # - run: echo workspace is $GITHUB_WORKSPACE
+      # - run: touch nonsense.txt
+      # - run: ls
+      # - run: pwd
       # - run: git status
-      # - run: git commit -am ''
+      # - run: git branch
+      # - run: echo Running at `date`
