@@ -1,9 +1,10 @@
-on:
-  schedule:
-    - cron: "5 * * * *" # every 5 minutes
+on: push
+  # schedule:
+  #   - cron: "5 * * * *" # every 5 minutes
 
 jobs:
   increment-file:
     runs-on: ubuntu-latest
     steps:
+      - run: echo Running at `date`
       - run: echo $((`cat increment.txt` + 1)) > increment.txt
