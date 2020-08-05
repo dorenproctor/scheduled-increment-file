@@ -11,6 +11,8 @@ jobs:
       - run: echo incrementing to $i
       - run: echo $i > increment.txt
       - run: git status
+      - run: git config --global user.email "dorenproctor@gmail.com"
+      - run: git config --global user.name "Doren's CI/CD runner"
       - run: git commit -am "increment to $i"
       # - run: echo $((`cat increment.txt` + 1)) > increment.txt
 
