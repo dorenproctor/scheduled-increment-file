@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: ls -al
+      - run: chmod +x increment.sh
       - run: ./increment.sh
       # - run: i=$((`cat increment.txt` + 1))
       # - run: echo incrementing to $i
