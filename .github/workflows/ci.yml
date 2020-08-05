@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: '*/5 * * * *' # every 5 minutes
+    - cron: '*/60 * * * *' # every 60 minutes
 
 jobs:
   increment-file:
@@ -10,21 +10,3 @@ jobs:
       - run: ls -al
       - run: chmod +x increment.sh
       - run: ./increment.sh
-      # - run: i=$((`cat increment.txt` + 1))
-      # - run: echo incrementing to $i
-      # - run: echo $i > increment.txt
-      # - run: git status
-      # - run: git config --global user.email "dorenproctor@gmail.com"
-      # - run: git config --global user.name "Doren's CI/CD Runner"
-      # - run: git commit -am "increment to $i"
-      # - run: git push
-      
-      # - run: echo $((`cat increment.txt` + 1)) > increment.txt
-
-      # - run: echo workspace is $GITHUB_WORKSPACE
-      # - run: touch nonsense.txt
-      # - run: ls
-      # - run: pwd
-      # - run: git status
-      # - run: git branch
-      # - run: echo Running at `date`
